@@ -14,7 +14,7 @@ class Iterate():
     def generate_reverse_index(self):
         """
         generate a reverse index using the content from the dictionary
-        :return:
+        :return: reverse_index
         """
         pass
 
