@@ -1,6 +1,8 @@
 
 class Query():
-
+    """
+    Take user inputs and return locations of search terms in .txt files
+    """
     def __init__(self):
         pass
 
