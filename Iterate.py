@@ -1,6 +1,8 @@
 
 class Iterate():
-
+    """
+    Iterates over .txt files, generates a dictionary, and then generates a reverse index
+    """
     def __init__(self):
         pass
 
