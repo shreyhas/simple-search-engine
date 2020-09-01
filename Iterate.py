@@ -20,7 +20,12 @@ class Iterate():
         for i in range(self.no_of_docs-1):
             doc_txt = self.doc_to_df(i)
             #assign key to index in dictionary and its locations as tuples(docid,line,wordpos) as the values
-        pass
+            for j in range(len(doc_txt)):
+                for k in range(doc_txt.shape[1]):
+                    key = doc_txt[k][j]
+                    dict[key].append((i,j,k))
+
+
 
     def doc_to_df(self, doc_no):
         """
