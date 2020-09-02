@@ -1,7 +1,7 @@
 from _collections import defaultdict
 import pandas as pd
 
-class Iterate():
+class Index():
     """
     Iterates over .txt files, generates a dictionary, and then generates a reverse index
     """
@@ -9,6 +9,21 @@ class Iterate():
     def __init__(self, no_of_docs):
         self.no_of_docs = no_of_docs
         pass
+
+    def doc_to_df(self, doc_no):
+        """
+        take the document and convert it into a df with indexes of line number
+        :param doc_no: filename of document
+        :return: doc_txt
+        """
+        doc_txt = pd.DataFrame()
+        i = 1
+        with open ('{doc_id}.txt'.format(doc_id = doc_no)) as file:
+            for line in file:
+                words = pd.Series(line.split(' '))
+                doc_txt = doc_txt.append(words, ignore_index=True)
+        return doc_txt
+
 
 
     def generate_dict(self):
@@ -27,27 +42,13 @@ class Iterate():
 
 
 
-    def doc_to_df(self, doc_no):
-        """
-        take the document and convert it into a df with indexes of line number
-        :param doc_no: filename of document
-        :return: doc_txt
-        """
-        doc_txt = pd.DataFrame()
-        i = 1
-        with open ('{doc_id}.txt'.format(doc_id = doc_no)) as file:
-            for line in file:
-                words = pd.Series(line.split(' '))
-                doc_txt = doc_txt.append(words, ignore_index=True)
-        return doc_txt
-
 
     def generate_reverse_index(self):
         """
         generate a reverse index using the content from the dictionary
         :return: reverse_index
         """
-        pass
+
 
 
 
